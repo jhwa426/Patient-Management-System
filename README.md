@@ -34,7 +34,7 @@ Currently working on it
 <img align="left" alt="twilio" height="50px" src="https://cdn.svgporn.com/logos/twilio-icon.svg" />
 <img align="left" alt="ShadCN" height="50px" src="https://avatars.githubusercontent.com/u/139895814?s=280&v=4" />
 <img align="left" alt="Git" height="50px" src="https://cdn.svgporn.com/logos/git-icon.svg" />
-<img align="left" alt="Vercel" height="50px" src="https://cdn.svgporn.com/logos/vercel.svg" />
+<img align="left" alt="Vercel" height="50px" src="https://cdn.svgporn.com/logos/vercel-icon.svg" />
 
 <br />
 <br />
