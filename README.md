@@ -1,7 +1,7 @@
 ## Patient-Management-System
 
 <p>
-Curretly working on it
+Currently working on it
 </p>
 
 ## [Healthcare Management]()
