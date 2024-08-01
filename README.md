@@ -45,5 +45,42 @@ Curretly working on it
 ## Installation
 
 <details>
-will be updated soon..
+1. Open Terminal.
+
+2. Change the current working directory to the location where you want the cloned directory.
+
+3. Clone the repository: `git clone https://github.com/jhwa426/Patient-Management-System`
+
+4. Navigate to the project directory: `cd healthcare`
+
+5. Install the dependencies: `npm install`
+
+6. Set Up Environment Variables
+
+Create a new file named `.env.local` in the root of your project and add the following content:
+
+```env
+#APPWRITE
+NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
+PROJECT_ID=
+API_KEY=
+DATABASE_ID=
+PATIENT_COLLECTION_ID=
+APPOINTMENT_COLLECTION_ID=
+NEXT_PUBLIC_BUCKET_ID=
+
+NEXT_PUBLIC_ADMIN_PASSKEY=111111
+```
+
+7. Replace the placeholder values with your actual Appwrite credentials. You can obtain these credentials by signing up on the [Appwrite website](https://appwrite.io/).
+
+**Running the Project**
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
+
+8. Open your browser and visit: `http://localhost:3000`
 </details>
