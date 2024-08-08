@@ -84,10 +84,6 @@ export const getPatient = async (userId: string) => {
 // REGISTER PATIENT
 export const registerPatient = async ({ identificationDocument, ...patient }: RegisterUserParams) => {
     try {
-        // TODO: TEST AREA
-        console.log("Identification Document:", identificationDocument);
-        console.log("Patient:", patient);
-
         // Upload file ->  // https://appwrite.io/docs/references/cloud/client-web/storage#createFile
         let file;
         if (identificationDocument) {
@@ -119,3 +115,6 @@ export const registerPatient = async ({ identificationDocument, ...patient }: Re
         console.error("An error occurred while creating a new patient:", error);
     }
 }
+
+
+// 

@@ -10,54 +10,92 @@ import CustomFormField from "./CustomFormField"
 import SubmitButton from "../ui/SubmitButton"
 
 import { useState } from "react"
-import { UserFormValidation } from "@/lib/validation"
+import { getAppointmentSchema } from "@/lib/validation"
 import { useRouter } from "next/navigation"
-import { createUser } from "@/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
 import { Doctors } from "@/constants"
 import Image from "next/image";
 import { SelectItem } from "@/components/ui/select";
+import { Appointment } from "@/types/appwrite.types"
+
+import { createUser } from "@/lib/actions/patient.actions"
+import { createAppointment } from "@/lib/actions/appointment.actions"
+
 
 const AppointmentForm = ({
     userId,
     patientId,
     patientName,
+    appointment,
     type = "create",
 }: {
     userId: string;
     patientId: string;
     patientName: string;
+    appointment?: Appointment;
     type: "create" | "schedule" | "cancel";
 }) => {
 
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
-    const form = useForm<z.infer<typeof UserFormValidation>>({
-        resolver: zodResolver(UserFormValidation),
+    const AppointmentFormValidation = getAppointmentSchema(type);
+
+    const form = useForm<z.infer<typeof AppointmentFormValidation>>({
+        resolver: zodResolver(AppointmentFormValidation),
         defaultValues: {
-            name: "",
-            email: "",
-            phone: "",
+            primaryPhysician: appointment ? appointment?.primaryPhysician : "",
+            schedule: appointment
+                ? new Date(appointment?.schedule!)
+                : new Date(Date.now()),
+            reason: appointment ? appointment.reason : "",
+            note: appointment?.note || "",
+            cancellationReason: appointment?.cancellationReason || "",
         },
     })
 
 
     // Submit handler.
-    const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
+    const onSubmit = async (values: z.infer<typeof AppointmentFormValidation>) => {
         setIsLoading(true);
 
+        let status;
+        switch (type) {
+            case "schedule":
+                status = "scheduled";
+                break;
+            case "cancel":
+                status = "cancelled";
+                break;
+            default:
+                status = "pending";
+        }
+
         try {
-            const userData = {
-                name: values.name,
-                email: values.email,
-                phone: values.phone,
-            };
+            if (type === "create" && patientId) {
+                const appointmentData = {
+                    userId,
+                    patient: patientId,
+                    primaryPhysician: values.primaryPhysician,
+                    schedule: new Date(values.schedule),
+                    reason: values.reason!,
+                    note: values.note,
+                    status: status as Status,
+                };
 
-            const newUser = await createUser(userData);
+                const newAppointment = await createAppointment(appointmentData);
 
-            if (newUser) {
-                router.push(`/patients/${newUser.$id}/register`);
+                console.log(newAppointment);
+
+                if (newAppointment) {
+                    form.reset();
+                    router.push(
+                        `/patients/${userId}/new-appointment/success?appointmentId=${newAppointment.$id}`
+                    );
+                }
+            }
+            else {
+                //TODO: update appointment
             }
         } catch (error) {
             console.log(error);
@@ -66,6 +104,9 @@ const AppointmentForm = ({
         setIsLoading(false);
     };
 
+
+
+    // Button Label
     let buttonLabel;
     switch (type) {
         case "cancel":
@@ -78,8 +119,9 @@ const AppointmentForm = ({
             buttonLabel = "Submit Appointment";
     }
 
-    return (
 
+
+    return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
                 <section className="mb-12 space-y-4">

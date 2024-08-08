@@ -25,7 +25,7 @@ const Appointment = async ({ params: { userId } }: SearchParamProps) => {
                         patientName={patient.name}
                     />
 
-                    <p className="justify-items-end text-dark-600 xl:text-left">© 2024 CarePluse</p>
+                    <p className="copyright mt-10 py-12">© 2024 CarePluse</p>
                 </div>
             </section>
 
