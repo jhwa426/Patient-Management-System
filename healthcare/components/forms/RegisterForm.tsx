@@ -6,8 +6,8 @@ import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl } from "@/components/ui/form"
 
-import CustomFormField from "./CustomFormField"
-import SubmitButton from "../ui/SubmitButton"
+import CustomFormField from "../CustomFormField"
+import SubmitButton from "../SubmitButton"
 
 import { useState } from "react"
 import { PatientFormValidation } from "@/lib/validation"
@@ -19,7 +19,7 @@ import { SelectItem } from "@/components/ui/select";
 import { GenderOptions, Doctors, IdentificationTypes, PatientFormDefaultValues, } from "@/constants"
 import { Label } from "@/components/ui/label";
 import Image from "next/image";
-import FileUploader from "../ui/FileUploader"
+import FileUploader from "../FileUploader"
 
 
 const RegisterForm = ({ user }: { user: User }) => {
