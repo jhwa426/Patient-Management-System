@@ -8,16 +8,16 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Control } from "react-hook-form";
-import { FormFieldType } from "./PatientForm";
+import { FormFieldType } from "./forms/PatientForm";
 import Image from "next/image";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input'
-import { Input } from "../ui/input";
-import { Select, SelectContent, SelectTrigger, SelectValue } from "../ui/select";
-import { Textarea } from "../ui/textarea";
-import { Checkbox } from "../ui/checkbox";
+import { Input } from "./ui/input";
+import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
+import { Checkbox } from "./ui/checkbox";
 
 interface CustomProps {
     control: Control<any>;
