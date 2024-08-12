@@ -27,17 +27,15 @@ export const PatientFormDefaultValues = {
 };
 
 export const IdentificationTypes = [
-    "Birth Certificate",
-    "Driver's License",
-    "Medical Insurance Card/Policy",
-    "Military ID Card",
-    "National Identity Card",
+    "New Zealand driver licence",
     "Passport",
-    "Resident Alien Card (Green Card)",
-    "Social Security Card",
-    "State ID Card",
+    "Kiwi Access Card",
+    "New Zealand full birth certificate",
+    "New Zealand citizenship certificate",
     "Student ID Card",
-    "Voter ID Card",
+    "Medical Insurance Card/Policy",
+    "Emergency travel document",
+    "New Zealand firearms licence",
 ];
 
 export const Doctors = [

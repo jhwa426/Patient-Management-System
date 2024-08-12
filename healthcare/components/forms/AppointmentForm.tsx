@@ -18,14 +18,14 @@ import Image from "next/image";
 import { SelectItem } from "@/components/ui/select";
 import { Appointment } from "@/types/appwrite.types"
 
-import { createUser } from "@/lib/actions/patient.actions"
+import { createUser, getPatient } from "@/lib/actions/patient.actions"
 import { createAppointment } from "@/lib/actions/appointment.actions"
 
 
 const AppointmentForm = ({
     userId,
     patientId,
-    patientName,
+    patientName, // TODO: TEST getPatient name instead of patientName later
     appointment,
     type = "create",
 }: {
@@ -35,6 +35,10 @@ const AppointmentForm = ({
     appointment?: Appointment;
     type: "create" | "schedule" | "cancel";
 }) => {
+
+    // TODO: TEST getPatient name instead of patientName later
+    const test = getPatient(userId);
+
 
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
