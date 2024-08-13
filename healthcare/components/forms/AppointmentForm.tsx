@@ -19,26 +19,24 @@ import { SelectItem } from "@/components/ui/select";
 import { Appointment } from "@/types/appwrite.types"
 
 import { createUser, getPatient } from "@/lib/actions/patient.actions"
-import { createAppointment } from "@/lib/actions/appointment.actions"
+import { createAppointment, updateAppointment } from "@/lib/actions/appointment.actions"
 
 
 const AppointmentForm = ({
     userId,
     patientId,
-    patientName, // TODO: TEST getPatient name instead of patientName later
+    patientName,
     appointment,
     type = "create",
+    setOpen,
 }: {
     userId: string;
     patientId: string;
-    patientName: string;
+    patientName?: string;
     appointment?: Appointment;
     type: "create" | "schedule" | "cancel";
+    setOpen?: (open: boolean) => void;
 }) => {
-
-    // TODO: TEST getPatient name instead of patientName later
-    const test = getPatient(userId);
-
 
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -99,15 +97,30 @@ const AppointmentForm = ({
                 }
             }
             else {
-                //TODO: update appointment
+                const appointmentToUpdate = {
+                    userId,
+                    appointmentId: appointment?.$id!,
+                    appointment: {
+                        primaryPhysician: values.primaryPhysician,
+                        schedule: new Date(values.schedule),
+                        status: status as Status,
+                        cancellationReason: values.cancellationReason,
+                    },
+                    type,
+                };
+
+                const updatedAppointment = await updateAppointment(appointmentToUpdate);
+
+                if (updatedAppointment) {
+                    setOpen && setOpen(false);
+                    form.reset();
+                }
             }
         } catch (error) {
             console.log(error);
         }
-
         setIsLoading(false);
     };
-
 
 
     // Button Label
@@ -124,15 +137,16 @@ const AppointmentForm = ({
     }
 
 
-
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 flex-1">
-                <section className="mb-12 space-y-4">
-                    <h1 className="header">Hi {patientName}, 👨🏻‍⚕️👩🏻‍⚕️🩺</h1> {/* {patientName.split(" ")[0]} */}
-                    <h1 className="header">New Appointment</h1>
-                    <p className="text-dark-700">Request a new appointment in 1 minute.</p>
-                </section>
+                {type === "create" && (
+                    <section className="mb-12 space-y-4">
+                        <h1 className="header">Hi {patientName}, 👨🏻‍⚕️👩🏻‍⚕️🩺</h1> {/* {patientName.split(" ")[0]} */}
+                        <h1 className="header">New Appointment</h1>
+                        <p className="text-dark-700">Request a new appointment in 1 minute.</p>
+                    </section>
+                )}
 
                 {type !== "cancel" && (
                     <>
@@ -175,7 +189,7 @@ const AppointmentForm = ({
                                 name="reason"
                                 label="Appointment Reason"
                                 placeholder="Annual Monthly Check-Up"
-                                disabled={type === "schedule"}
+                            // disabled={type === "schedule"}
                             />
 
                             <CustomFormField
@@ -184,7 +198,7 @@ const AppointmentForm = ({
                                 name="note"
                                 label="Comments / Notes"
                                 placeholder="Prefer afternoon appointments, if possible"
-                                disabled={type === "schedule"}
+                            // disabled={type === "schedule"}
                             />
                         </div>
                     </>
