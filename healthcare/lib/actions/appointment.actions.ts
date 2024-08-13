@@ -77,10 +77,10 @@ export const getRecentAppointmentList = async () => {
                         accumulate.scheduledCount++;
                         break;
                     case "pending":
-                        accumulate.scheduledCount++;
+                        accumulate.pendingCount++;
                         break;
                     case "cancelled":
-                        accumulate.scheduledCount++;
+                        accumulate.cancelledCount++;
                         break;
                 }
                 return accumulate;
@@ -95,6 +95,7 @@ export const getRecentAppointmentList = async () => {
         }
 
         return parseStringify(data);
+
     } catch (error) {
         console.error(
             "An error occurred while retrieving the recent appointments:",
@@ -104,3 +105,34 @@ export const getRecentAppointmentList = async () => {
 }
 
 
+//  UPDATE APPOINTMENT
+export const updateAppointment = async ({
+    userId,
+    appointmentId,
+    appointment,
+    type,
+}: UpdateAppointmentParams) => {
+    try {
+        // Update appointment to scheduled -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#updateDocument
+        const updatedAppointment = await databases.updateDocument(
+            DATABASE_ID!,
+            APPOINTMENT_COLLECTION_ID!,
+            appointmentId,
+            appointment
+        );
+
+        if (!updatedAppointment) {
+            throw Error;
+        }
+
+        // TODO: SMS notification
+
+
+        revalidatePath("/admin");
+
+        return parseStringify(updatedAppointment);
+
+    } catch (error) {
+        console.error("An error occurred while scheduling an appointment:", error);
+    }
+}
