@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-
 const AdminPage = async () => {
     const appointments = await getRecentAppointmentList();
 
