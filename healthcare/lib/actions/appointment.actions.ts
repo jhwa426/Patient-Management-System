@@ -12,6 +12,7 @@ import {
 import { revalidatePath } from "next/cache";
 import { formatDateTime, parseStringify } from "../utils";
 import { Appointment } from "@/types/appwrite.types";
+import { getPatient } from "./patient.actions";
 
 
 
@@ -55,7 +56,7 @@ export const getAppointment = async (appointmentId: string) => {
 }
 
 
-//  GET RECENT APPOINTMENTS
+// GET RECENT APPOINTMENTS
 export const getRecentAppointmentList = async () => {
     try {
         const appointments = await databases.listDocuments(
@@ -105,7 +106,7 @@ export const getRecentAppointmentList = async () => {
 }
 
 
-//  UPDATE APPOINTMENT
+// UPDATE APPOINTMENT
 export const updateAppointment = async ({
     userId,
     appointmentId,
@@ -122,11 +123,21 @@ export const updateAppointment = async ({
         );
 
         if (!updatedAppointment) {
-            throw Error;
+            throw new Error("Appointment not found");
         }
 
-        // TODO: SMS notification
+        // SMS notification
+        const patient = await getPatient(userId);
 
+        const smsMessage = `
+                Hello ${patient.name.split(" ")[0]}, Greetings from CarePulse. ${type === "schedule" ? `Your appointment is confirmed for ${formatDateTime(appointment.schedule!).dateTime} with Dr. ${appointment.primaryPhysician}`
+                :
+                `We regret to inform that your appointment for ${formatDateTime(appointment.schedule!).dateTime} is cancelled. Reason:  ${appointment.cancellationReason}`}.
+            `;
+
+        await sendSMSNotification(userId, smsMessage);
+
+        // console.log(smsMessage);
 
         revalidatePath("/admin");
 
@@ -134,5 +145,24 @@ export const updateAppointment = async ({
 
     } catch (error) {
         console.error("An error occurred while scheduling an appointment:", error);
+    }
+}
+
+
+// SEND SMS NOTIFICATION
+export const sendSMSNotification = async (userId: string, content: string) => {
+    try {
+        // https://appwrite.io/docs/references/1.5.x/server-nodejs/messaging#createSms
+        const message = await messaging.createSms(
+            ID.unique(), // messageId
+            content,
+            [],
+            [userId],
+        );
+
+        return parseStringify(message);
+
+    } catch (error) {
+        console.error("An error occurred while sending sms:", error);
     }
 }
