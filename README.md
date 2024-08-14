@@ -4,13 +4,13 @@
 Currently working on it
 </p>
 
-## [Healthcare Management]()
+## [Healthcare Management](https://patient-management-system-carepulse.vercel.app/)
 
 - Register as a Patient: Users can sign up and create a personal profile as a patient.
 
 - Book a New Appointment with Doctor: Patients can schedule appointments with doctors at their convenience and can book multiple appointments.
 
-- Manage Appointments on Admin Side: Administrators can efficiently view and handle all scheduled appointments.
+- Manage Appointments on Admin Side <b>(Admin Passkey : 123123)</b>: Administrators can efficiently view and handle all scheduled appointments.
 
 - Confirm/Schedule Appointment from Admin Side: Admins can confirm and set appointment times to ensure they are properly scheduled.
 
@@ -70,7 +70,7 @@ PATIENT_COLLECTION_ID=
 APPOINTMENT_COLLECTION_ID=
 NEXT_PUBLIC_BUCKET_ID=
 
-NEXT_PUBLIC_ADMIN_PASSKEY=111111
+NEXT_PUBLIC_ADMIN_PASSKEY=123123
 ```
 
 7. Replace the placeholder values with your actual Appwrite credentials. You can obtain these credentials by signing up on the [Appwrite website](https://appwrite.io/).
