@@ -45,5 +45,3 @@ const Home = ({ searchParams }: SearchParamProps) => {
 }
 
 export default Home;
-// Admin
-
