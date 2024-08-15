@@ -4,7 +4,7 @@
 Build a healthcare management platform that streamlines patient registration, appointment scheduling, and medical records, and learn to implement complex forms and SMS notifications. 
 </p>
 
-## [Healthcare Management](https://patient-management-system-carepulse.vercel.app/)
+## [CarePulse](https://patient-management-system-carepulse.vercel.app/)
 
 - Register as a Patient: Users can sign up and create a personal profile as a patient.
 
