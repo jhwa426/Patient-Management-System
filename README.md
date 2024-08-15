@@ -1,28 +1,33 @@
 ## Patient-Management-System
 
 <p>
-Build a healthcare management platform that streamlines patient registration, appointment scheduling, and medical records, and learn to implement complex forms and SMS notifications. 
+Built a healthcare management platform that streamlines patient registration, appointment scheduling, and medical records, as well as implemented complex forms and SMS notifications.
+
+Project Logic: Fill out the registration form and create a personal patient profile. A patient can make a new appointment with the doctor. A patient will receive an SMS notification on appointment confirmation or cancellation (Patients require to enter an actual number so that they receive an SMS notification). On the other hand, an admin can efficiently view and handle all scheduled appointments, which necessitates a <b>passkey (123123)</b>. Admins can confirm and set appointment times to ensure they are properly scheduled. Once admin schedules or cancels appointments, a patient will receive an SMS notification about the appointment.
+
 </p>
 
 ## [CarePulse](https://patient-management-system-carepulse.vercel.app/)
 
-- Register as a Patient: Users can sign up and create a personal profile as a patient.
+### Features
 
-- Book a New Appointment with Doctor: Patients can schedule appointments with doctors at their convenience and can book multiple appointments.
+- Register as a Patient: Users can sign up and create a personal profile as a patient
 
-- Manage Appointments on Admin Side <b>(Admin Passkey : 123123)</b>: Administrators can efficiently view and handle all scheduled appointments.
+- Book a New Appointment with Doctor: Patients can schedule appointments with doctors at their convenience and can book multiple appointments
 
-- Confirm/Schedule Appointment from Admin Side: Admins can confirm and set appointment times to ensure they are properly scheduled.
+- Manage Appointments on Admin Side <b>(Admin Passkey : 123123)</b>: Administrators can efficiently view and handle all scheduled appointments
 
-- Cancel Appointment from Admin Side: Administrators have the ability to cancel any appointment as needed.
+- Confirm/Schedule Appointment from Admin Side: Admins can confirm and set appointment times to ensure they are properly scheduled
 
-- Send SMS on Appointment Confirmation: Patients receive SMS notifications to confirm their appointment details.
+- Cancel Appointment from Admin Side: Administrators have the ability to cancel any appointment as needed
 
-- Complete Responsiveness: The application works seamlessly on all device types and screen sizes.
+- Send SMS on Appointment Confirmation: Patients receive SMS notifications to confirm their appointment details
 
-- File Upload Using Appwrite Storage: Users can upload and store files securely within the app using Appwrite storage services.
+- Complete Responsiveness: The application works seamlessly on all device types and screen sizes
 
-- Manage and Track Application Performance Using Sentry: The application uses Sentry to monitor and track its performance and detect any errors.
+- File Upload Using Appwrite Storage: Users can upload and store files securely within the app using Appwrite storage services
+
+- Manage and Track Application Performance Using Sentry: The application uses Sentry to monitor and track its performance and detect any errors
 
 ## Technical Skills 💻
 
@@ -61,7 +66,7 @@ Build a healthcare management platform that streamlines patient registration, ap
 Create a new file named `.env.local` in the root of your project and add the following content:
 
 ```env
-#APPWRITE
+# APPWRITE
 NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
 PROJECT_ID=
 API_KEY=
