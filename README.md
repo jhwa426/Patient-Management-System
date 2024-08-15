@@ -1,7 +1,7 @@
 ## Patient-Management-System
 
 <p>
-Currently working on it
+Build a healthcare management platform that streamlines patient registration, appointment scheduling, and medical records, and learn to implement complex forms and SMS notifications. 
 </p>
 
 ## [Healthcare Management](https://patient-management-system-carepulse.vercel.app/)
