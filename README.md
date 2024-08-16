@@ -29,6 +29,8 @@ Project Logic: Fill out the registration form and create a personal patient prof
 
 - Manage and Track Application Performance Using Sentry: The application uses Sentry to monitor and track its performance and detect any errors
 
+<br />
+
 ## Technical Skills 💻
 
 <img align="left" alt="React/React Native" height="50px" src="https://cdn.svgporn.com/logos/react.svg" />
