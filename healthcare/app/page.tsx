@@ -11,7 +11,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
             {isAdmin && <PasskeyModal />}
 
             <section className="remove-scrollbar container my-auto">
-                <div className="sub-container max-w-[860px] flex-1 justify-normal">
+                <div className="sub-container max-w-[496px]">
                     <Image
                         src="/assets/icons/logo-full.svg"
                         height={1000}
