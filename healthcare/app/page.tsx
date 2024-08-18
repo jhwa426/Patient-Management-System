@@ -11,8 +11,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
             {isAdmin && <PasskeyModal />}
 
             <section className="remove-scrollbar container my-auto">
-                <header className="sub-container max-w-[496px]">
-                    {/* <header className="sub-container max-w-[496px]"> */}
+                <div className="sub-container max-w-[860px] flex-1 justify-normal">
                     <Image
                         src="/assets/icons/logo-full.svg"
                         height={1000}
@@ -20,7 +19,6 @@ const Home = ({ searchParams }: SearchParamProps) => {
                         alt="patient"
                         className="mb-12 h-10 w-fit"
                     />
-                    {/* </header> */}
 
                     <PatientForm />
 
@@ -32,7 +30,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
                             Admin
                         </Link>
                     </div>
-                </header>
+                </div>
             </section>
 
             <Image
