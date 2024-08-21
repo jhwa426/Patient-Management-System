@@ -1,9 +1,9 @@
 ## Patient-Management-System
 
 <p>
-Built a healthcare management platform that streamlines patient registration, appointment scheduling, and medical records, as well as implemented complex forms and SMS notifications.
+Built a Full-Stack healthcare management platform using TypeScript and Next JS, which enabled streamline patient registration, appointment scheduling, complex forms and SMS notifications, and performance tracking with Sentry, ensuring complete responsiveness functionality across all devices. 
 
-Project Logic: Fill out the registration form and create a personal patient profile. A patient can make a new appointment with the doctor. A patient will receive an SMS notification on appointment confirmation or cancellation (patients are required to enter an actual number in order to receive an SMS notification). On the other hand, an admin can efficiently view and handle all scheduled appointments, which necessitates a <b>passkey (123123)</b>. Admins can confirm and set appointment times to ensure they are properly scheduled. Once admin schedules or cancels appointments, a patient will receive an SMS notification about the appointment.
+<b>Project Logic</b>: Fill out the registration form and create a personal patient profile. A patient can make a new appointment with the doctor. A patient will receive an SMS notification on appointment confirmation or cancellation (patients are required to enter an actual number in order to receive an SMS notification). On the other hand, an admin can efficiently view and handle all scheduled appointments, which necessitates a <b>passkey (123123)</b>. Admins can confirm and set appointment times to ensure they are properly scheduled. Once admin schedules or cancels appointments, a patient will receive an SMS notification about the appointment.
 
 </p>
 
