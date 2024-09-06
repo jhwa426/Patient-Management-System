@@ -31,6 +31,9 @@ Built a Full-Stack healthcare management platform using TypeScript and Next JS, 
 
 <br />
 
+![CarePulse](https://github.com/user-attachments/assets/f249f831-4eed-40de-9527-93b44b5b22c6)
+
+
 ## Technical Skills 💻
 
 <img align="left" alt="React/React Native" height="50px" src="https://cdn.svgporn.com/logos/react.svg" />
