@@ -33,18 +33,9 @@ Built a Full-Stack healthcare management platform using TypeScript and Next JS, 
 
 ![CarePulse](https://github.com/user-attachments/assets/f249f831-4eed-40de-9527-93b44b5b22c6)
 
-
 ## Technical Skills 💻
 
-<img align="left" alt="React/React Native" height="50px" src="https://cdn.svgporn.com/logos/react.svg" />
-<img align="left" alt="Typescript" height="50px" src="https://cdn.svgporn.com/logos/typescript-icon.svg" />
-<img align="left" alt="NextJS" height="50px" src="https://cdn.svgporn.com/logos/nextjs-icon.svg" />
-<img align="left" alt="tailwindcss" height="50px" src="https://cdn.svgporn.com/logos/tailwindcss-icon.svg" />
-<img align="left" alt="appwrite" height="50px" src="https://cdn.svgporn.com/logos/appwrite-icon.svg" />
-<img align="left" alt="twilio" height="50px" src="https://cdn.svgporn.com/logos/twilio-icon.svg" />
-<img align="left" alt="ShadCN" height="50px" src="https://avatars.githubusercontent.com/u/139895814?s=280&v=4" />
-<img align="left" alt="Git" height="50px" src="https://cdn.svgporn.com/logos/git-icon.svg" />
-<img align="left" alt="Vercel" height="50px" src="https://cdn.svgporn.com/logos/vercel-icon.svg" />
+<img align="left" alt="React/React Native" height="50px" src="https://cdn.svgporn.com/logos/react.svg" /><img align="left" alt="Typescript" height="50px" src="https://cdn.svgporn.com/logos/typescript-icon.svg" /><img align="left" alt="NextJS" height="50px" src="https://cdn.svgporn.com/logos/nextjs-icon.svg" /><img align="left" alt="tailwindcss" height="50px" src="https://cdn.svgporn.com/logos/tailwindcss-icon.svg" /><img align="left" alt="appwrite" height="50px" src="https://cdn.svgporn.com/logos/appwrite-icon.svg" /><img align="left" alt="twilio" height="50px" src="https://cdn.svgporn.com/logos/twilio-icon.svg" /><img align="left" alt="ShadCN" height="50px" src="https://avatars.githubusercontent.com/u/139895814?s=280&v=4" /><img align="left" alt="Git" height="50px" src="https://cdn.svgporn.com/logos/git-icon.svg" /><img align="left" alt="Vercel" height="50px" src="https://cdn.svgporn.com/logos/vercel-icon.svg" />
 
 <br />
 <br />
